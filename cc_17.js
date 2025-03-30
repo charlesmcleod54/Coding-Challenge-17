@@ -73,3 +73,26 @@ let vipCustomer = new VIPCustomer("Josh Allen", "josha@hotmail.com", "Gold");
 vipCustomer.addPurchase(200);
 vipCustomer.addPurchase(300);
 vipCustomer.getTotalSpent();
+
+// Task 4: Build a Client Report System
+let customers = [
+    customer1,
+    vipCustomer
+];
+
+salesRep.addClient(customer1);
+salesRep.addClient(vipCustomer);
+
+let totalRevenue = customers.reduce((total, customer) => total + customer.getTotalSpent(), 0);
+console.log(`Total revenue: $${totalRevenue}`);
+
+let highSpendingCustomers = customers.filter(customer => customer.getTotalSpent() > 500);
+console.log('High-spending customers:', highSpendingCustomers.map(customer => customer.name));
+
+let customerSummary = customers.map(customer => {
+    return {
+        name: customer.name,
+        TotalSpent: customer.getTotalSpent()
+    };
+});
+console.log('Customer Summary:', customerSummary);

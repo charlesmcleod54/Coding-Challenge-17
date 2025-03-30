@@ -49,3 +49,27 @@ class SalesRep {
 let salesRep = new SalesRep("Thomas");
 salesRep.addClient(customer1);
 salesRep.getClientTotal("John Smith");
+
+// Task 3: Create a VIPCustomer Class
+class VIPCustomer extends Customer {
+    constructor(name, email, vipLevel) {
+        super(name, email);
+        this.vipLevel = vipLevel;
+    }
+
+    getTotalSpent() {
+        let totalSpent = super.getTotalSpent();
+        if (this. vipLevel === 'Gold') {
+            totalSpent *= 1.1;
+        } else if (this.vipLevel === 'Platinum') {
+            totalSpent *= 1.2;
+        }
+        console.log(`${this.name} (VIP ${this.vipLevel}) total spent with bonus: $${totalSpent}`);
+        return totalSpent;
+    }
+}
+
+let vipCustomer = new VIPCustomer("Josh Allen", "josha@hotmail.com", "Gold");
+vipCustomer.addPurchase(200);
+vipCustomer.addPurchase(300);
+vipCustomer.getTotalSpent();
